@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-import Services from './Services';
-import Circuits from './Circuits';
-import Contact from './Contact';
+import Services from "./Services";
+import Circuits from "./Circuits";
+import Contact from "./Contact";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -18,20 +18,20 @@ export default function NavigationTabs() {
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
 
-                    if (route.name === "Services") { iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline' }
-                    else if (route.name === "Circuits") { iconName = focused ? 'ios-list-box' : 'ios-list' }
-                    else if (route.name === "Contact") { iconName = focused ? 'ios-list-box' : 'ios-list' }
+                    if (route.name === "Services") { iconName = focused ? "view-list" : "view-list-outline" }
+                    else if (route.name === "Circuits") { iconName = focused ? "picture-in-picture-bottom-right" : "picture-in-picture-bottom-right-outline" }
+                    else if (route.name === "Contact") { iconName = focused ? "contacts" : "contacts-outline" }
 
                     // You can return any component that you like here!
-                    return <Ionicons name={iconName} size={size} color={color} />;
+                    return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
                 },
-                tabBarActiveTintColor: 'tomato',
-                tabBarInactiveTintColor: 'gray',
+                tabBarActiveTintColor: "#34495e",
+                tabBarInactiveTintColor: "#7f8c8d",
             })}
         >
-            <Screen name="Services" component={ServicesScreen} />
-            <Screen name="Circuits" component={CircuitsScreen} />
-            <Screen name="Contact" component={ContactScreen} />
+            <Screen name="Services" component={ServicesScreen} options={{ headerShown: false }} />
+            <Screen name="Circuits" component={CircuitsScreen} options={{ headerShown: false }} />
+            <Screen name="Contact" component={ContactScreen} options={{ headerShown: false }} />
         </Navigator>
     );
 }
