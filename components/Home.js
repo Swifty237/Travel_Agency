@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet, ImageBackground, Image, TouchableHighlight } from "react-native";
+import { Header } from "@rneui/themed";
 import Services from "./Services";
 
 const backImg = require("../assets/backimg_home.png")
@@ -9,6 +10,7 @@ export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
             <ImageBackground style={styles.imgBackgrd} source={backImg}>
+                <Header containerStyle={styles.headContainer} backgroundColor="transparent" />
                 <View style={styles.logoBox}>
                     <Image style={styles.imgLogo} source={Img} />
                 </View>
@@ -23,7 +25,7 @@ export default function Home({ navigation }) {
                 </View>
                 <TouchableHighlight style={styles.button} onPress={() => { navigation.navigate(Services) }}>
                     <View style={styles.buttonTextBox}>
-                        <Text style={styles.textButton}> Entrer </Text>
+                        <Text style={styles.textButton}> ENTRER </Text>
                     </View>
                 </TouchableHighlight>
             </ImageBackground>
@@ -36,6 +38,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
+    },
+
+    headContainer: {
+        height: 40,
+        backgroundColor: "black"
     },
 
     imgBackgrd: {
@@ -90,11 +97,12 @@ const styles = StyleSheet.create({
     },
 
     button: {
-        backgroundColor: "#34495e",
+        backgroundColor: "black",
         marginBottom: 50,
         height: 50,
-        width: 100,
-        borderRadius: 10
+        width: 130,
+        borderRadius: 10,
+        justifyContent: "center"
     },
 
     buttonTextBox: {
@@ -104,8 +112,7 @@ const styles = StyleSheet.create({
     textButton: {
         color: "white",
         textAlign: "center",
-        fontSize: 25,
-        fontWeight: "bold",
-        marginTop: 5
+        fontSize: 18,
+        fontWeight: "bold"
     }
 })

@@ -25,13 +25,13 @@ export default function NavigationTabs() {
                     // You can return any component that you like here!
                     return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
                 },
-                tabBarActiveTintColor: "#34495e",
-                tabBarInactiveTintColor: "#7f8c8d",
+                tabBarActiveTintColor: "white",
+                tabBarInactiveTintColor: "black"
             })}
         >
-            <Screen name="Services" component={ServicesScreen} options={{ headerShown: false }} />
-            <Screen name="Circuits" component={CircuitsScreen} options={{ headerShown: false }} />
-            <Screen name="Contact" component={ContactScreen} options={{ headerShown: false }} />
+            <Screen name="Services" component={ServicesScreen} options={{ headerShown: false, tabBarActiveBackgroundColor: "black", tabBarInactiveBackgroundColor: "goldenrod" }} />
+            <Screen name="Circuits" component={CircuitsScreen} options={{ headerShown: false, tabBarActiveBackgroundColor: "black", tabBarInactiveBackgroundColor: "#FFE14C" }} />
+            <Screen name="Contact" component={ContactScreen} options={{ headerShown: false, tabBarActiveBackgroundColor: "black", tabBarInactiveBackgroundColor: "#FFE14C" }} />
         </Navigator>
     );
 }
