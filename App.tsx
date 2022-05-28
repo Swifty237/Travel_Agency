@@ -14,7 +14,7 @@ export default function App() {
       <Navigator initialRouteName="Home">
         <Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Screen
-          name="Services"
+          name="NavigationTabs"
           component={NavigationTabs}
           options={{
             headerTitle: "back",

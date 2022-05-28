@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, ImageBackground, Image, TouchableHighlight } from "react-native";
 import { Header } from "@rneui/themed";
-import Services from "./Services";
+import NavigationTabs from "./NavigationTabs";
 
 const backImg = require("../assets/backimg_home.png")
 const ImgHome = require("../assets/backimg_home2.png")
@@ -24,7 +24,7 @@ export default function Home({ navigation }: any) {
             </View>
           </ImageBackground>
         </View>
-        <TouchableHighlight style={styles.button} onPress={() => { navigation.navigate(Services) }}>
+        <TouchableHighlight style={styles.button} onPress={() => { navigation.navigate(NavigationTabs) }}>
           <View style={styles.buttonTextBox}>
             <Text style={styles.textButton}> ENTRER </Text>
           </View>

@@ -5,11 +5,12 @@ import { useState } from "react";
 import { datas } from "./infos"
 import { typeInfos } from "./TypingSource";
 
-const backImg = require("../assets/backimg_services.png")
+const backImg: any = require("../assets/backimg_services.png")
 
 export default function Services() {
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false)
+  const [index, setIndex] = useState(0)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,17 +23,17 @@ export default function Services() {
 
         <ScrollView style={styles.containerServices}>
           {
-            datas.map((obj: typeInfos) => (
-              <View>
+            datas.map((obj: typeInfos, id: number) => (
+              <View key={id}>
                 <Modal style={styles.modalBox} visible={modalVisible} animationType="slide">
                   <View style={styles.modalImageBox}>
-                    <Image style={styles.modalImage} source={obj.img} />
+                    <Image style={styles.modalImage} source={datas[index].img} />
                   </View>
 
                   <ScrollView>
                     <View style={styles.modalTextBox}>
-                      <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center", margin: 10 }}>{obj.title}</Text>
-                      <Text style={styles.modalText}>{obj.desc}</Text>
+                      <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center", margin: 10 }}>{datas[index].title}</Text>
+                      <Text style={styles.modalText}>{datas[index].desc}</Text>
                     </View>
                   </ScrollView>
 
@@ -43,7 +44,10 @@ export default function Services() {
                   </TouchableOpacity>
                 </Modal>
 
-                <TouchableOpacity style={styles.box} onPress={() => setModalVisible(true)}>
+                <TouchableOpacity
+                  style={id % 2 == 0 ? styles.box : styles.reverseBox}
+                  onPress={() => { setIndex(id); setModalVisible(true) }}>
+
                   <View style={styles.pictureBox}>
                     <Image style={styles.servicesPictures} source={obj.img} />
                   </View>
@@ -68,7 +72,7 @@ export default function Services() {
 
         </ScrollView>
       </ImageBackground>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 }
 
