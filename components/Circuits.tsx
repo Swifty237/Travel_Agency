@@ -137,7 +137,9 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     width: "90%",
     height: 180,
-    opacity: .8
+    opacity: .8,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10
   },
 
   servicesPictures: {

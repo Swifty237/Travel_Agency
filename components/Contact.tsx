@@ -1,4 +1,4 @@
-import { Text, ImageBackground, StyleSheet, ScrollView, Image } from "react-native";
+import { Text, ImageBackground, StyleSheet, ScrollView, Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Header } from "@rneui/themed";
 
@@ -14,8 +14,10 @@ export default function Contact() {
           centerComponent={{ text: "CONTACT", style: styles.heading }}
           containerStyle={styles.headContainer} backgroundColor="transparent" />
 
-        <ScrollView style={styles.containerContact}>
-          <Image source={img} />
+        <ScrollView contentContainerStyle={styles.containerContact}>
+          <View style={styles.logoBox}>
+            <Image style={styles.imgStyle} source={img} />
+          </View>
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>
@@ -32,8 +34,6 @@ const styles = StyleSheet.create({
 
   containerContact: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
   },
 
   headContainer: {
@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
     opacity: .8,
     width: "95%",
     borderRadius: 10,
-    marginTop: 10
+    marginTop: 10,
+    marginBottom: 10
   },
 
   imgBackgrd: {
@@ -58,6 +59,18 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     opacity: 1
+  },
+
+  logoBox: {
+    flex: 1,
+  },
+
+  imgStyle: {
+    flex: 1,
+    resizeMode: "contain",
+    height: 100,
+    width: 300,
+    opacity: .9
   }
 })
 
