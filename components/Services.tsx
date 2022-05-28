@@ -2,8 +2,8 @@ import { Text, ImageBackground, StyleSheet, ScrollView, View, Image, TouchableOp
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Header, SearchBar } from "@rneui/themed";
 import { useState } from "react";
-import { datas } from "./infos"
-import { typeInfos } from "./TypingSource";
+import { servicesDatas } from "./datas"
+import { typeInfos } from "./TypesResource";
 
 const backImg: any = require("../assets/backimg_services.png")
 
@@ -23,23 +23,23 @@ export default function Services() {
 
         <ScrollView style={styles.containerServices}>
           {
-            datas.map((obj: typeInfos, id: number) => (
+            servicesDatas.map((obj: typeInfos, id: number) => (
               <View key={id}>
                 <Modal style={styles.modalBox} visible={modalVisible} animationType="slide">
                   <View style={styles.modalImageBox}>
-                    <Image style={styles.modalImage} source={datas[index].img} />
+                    <Image style={styles.modalImage} source={servicesDatas[index].img} />
                   </View>
 
                   <ScrollView>
                     <View style={styles.modalTextBox}>
-                      <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center", margin: 10 }}>{datas[index].title}</Text>
-                      <Text style={styles.modalText}>{datas[index].desc}</Text>
+                      <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center", margin: 10 }}>{servicesDatas[index].title}</Text>
+                      <Text style={styles.modalText}>{servicesDatas[index].desc}</Text>
                     </View>
                   </ScrollView>
 
                   <TouchableOpacity style={styles.closeModal} onPress={() => setModalVisible(false)}>
                     <View style={{ width: 100, margin: 10, alignItems: "center" }}>
-                      <Text>Close</Text>
+                      <Text>Fermer</Text>
                     </View>
                   </TouchableOpacity>
                 </Modal>
@@ -56,16 +56,6 @@ export default function Services() {
                     <Text style={{ fontWeight: "bold", fontSize: 17, textAlign: "center", margin: 10 }}>{obj.title}</Text>
                   </View>
                 </TouchableOpacity>
-
-                {/* <TouchableOpacity style={styles.reverseBox}>
-                  <View style={styles.reversePictureBox}>
-                    <Image style={styles.servicesPictures} source={require("../assets/comparateur.jpg")} />
-                  </View>
-
-                  <View style={styles.textBox}>
-                    <Text style={{ fontStyle: "italic", fontSize: 17, textAlign: "justify", margin: 12 }}>Ceci est le texte de test qui va avec l'image qui est sur le coté</Text>
-                  </View>
-                </TouchableOpacity> */}
               </View>
             ))
           }

@@ -1,8 +1,9 @@
-import { Text, ImageBackground, StyleSheet, ScrollView } from "react-native";
+import { Text, ImageBackground, StyleSheet, ScrollView, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Header, SearchBar } from "@rneui/themed";
+import { Header } from "@rneui/themed";
 
 const backImg = require("../assets/backimg_contact.png")
+const img = require("../assets/travel_logo2.png")
 
 export default function Contact() {
 
@@ -12,9 +13,9 @@ export default function Contact() {
         <Header
           centerComponent={{ text: "CONTACT", style: styles.heading }}
           containerStyle={styles.headContainer} backgroundColor="transparent" />
-        <SearchBar placeholder="Entrer une destination !" containerStyle={styles.searchBar} />
-        <ScrollView>
-          <Text> Ok Services </Text>
+
+        <ScrollView style={styles.containerContact}>
+          <Image source={img} />
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>
@@ -27,6 +28,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "black"
+  },
+
+  containerContact: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
   },
 
   headContainer: {
@@ -51,14 +58,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     opacity: 1
-  },
-
-  searchBar: {
-    width: "95%",
-    opacity: .8,
-    marginTop: 10,
-    borderRadius: 10,
-    backgroundColor: "black"
   }
 })
 

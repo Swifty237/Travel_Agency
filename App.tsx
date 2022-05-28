@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/Home";
 import NavigationTabs from "./components/NavigationTabs";
-import { typeNavScreen } from "./components/TypingSource";
+import { typeNavScreen } from "./components/TypesResource";
 
 const { Navigator, Screen } = createNativeStackNavigator<typeNavScreen>()
 
